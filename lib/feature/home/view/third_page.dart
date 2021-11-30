@@ -8,7 +8,7 @@ import 'package:wine_manager/common/widget/SubTitleText.dart';
 import 'package:wine_manager/common/widget/TitleText.dart';
 import 'package:wine_manager/feature/home/controller/home_controller.dart';
 
-class SecondPage extends GetView<HomeController> {
+class ThirdPage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class SecondPage extends GetView<HomeController> {
                         backgroundColor: Colors.grey[100],
                         child: Icon(
                           Icons.close_rounded,
-                          color: Colors.orange,
+                          color: Colors.red,
                           size: 32,
                         ),
                         radius: 40.0,
@@ -56,7 +56,7 @@ class SecondPage extends GetView<HomeController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
-                    TitleText("창고 2"),
+                    TitleText("창고 3"),
                     SizedBox(height: 8),
                     SubTitleText("와인 저장소")
 

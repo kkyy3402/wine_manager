@@ -12,9 +12,10 @@ class FirstPage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child:           Container(
-        padding: EdgeInsets.all(16),
+    return Container(
+      padding: EdgeInsets.all(16),
+      color: Colors.blue.shade50,
+      child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -39,7 +40,7 @@ class FirstPage extends GetView<HomeController> {
                       child: CircleAvatar(
                         backgroundColor: Colors.grey[100],
                         child: Icon(
-                          Icons.signal_wifi_statusbar_4_bar_rounded,
+                          Icons.check_sharp,
                           size: 32,
                         ),
                         radius: 40.0,
@@ -97,8 +98,7 @@ class FirstPage extends GetView<HomeController> {
 
           ],
         ),
-      )
-      ,
+      ),
     );
   }
 
