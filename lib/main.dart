@@ -23,6 +23,15 @@ class FlutterApp extends StatelessWidget {
       defaultTransition: Transition.fade,
       debugShowCheckedModeBanner: false,
       getPages: AppPages.pages,
+      theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+            systemOverlayStyle: SystemUiOverlayStyle(
+                statusBarBrightness: Brightness.light
+            ),
+            //brightness: Brightness.dark,
+          ),
+          fontFamily: "NanumSquare"
+      ),
     );
   }
 }

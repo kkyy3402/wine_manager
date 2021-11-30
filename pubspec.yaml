@@ -27,6 +27,8 @@ dependencies:
   get_it: ^7.2.0
   get_storage: ^2.0.3
   http: ^0.13.3
+  avatar_glow: ^2.0.2
+  page_view_indicators: ^2.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -64,6 +66,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: AppleSDGothic
+      fonts:
+        - asset: assets/fonts/AppleSDGothicNeoR.ttf
+    - family: NanumSquare
+      fonts:
+        - asset: assets/fonts/NanumSquareR.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
