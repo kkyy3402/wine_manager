@@ -39,10 +39,10 @@ class HomePage extends GetView<HomeController> {
                         children: [
                           IconButton(
                               onPressed: (){
-                                print("눌림");
+                                Get.back();
                               },
                               icon: Icon(
-                                Icons.add,
+                                Icons.logout,
                                 color: Colors.black54,
                               )
                           )

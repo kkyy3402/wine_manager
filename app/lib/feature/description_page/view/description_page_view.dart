@@ -8,6 +8,7 @@ import 'package:wine_manager/common/widget/SubTitleText.dart';
 import 'package:wine_manager/common/widget/TagButton.dart';
 import 'package:wine_manager/common/widget/TitleText.dart';
 import 'package:wine_manager/feature/description_page/controller/description_page_controller.dart';
+import 'package:wine_manager/feature/home/model/description_item_model.dart';
 
 class DescriptionPage extends GetView<DescriptionPageController> {
 
@@ -15,113 +16,89 @@ class DescriptionPage extends GetView<DescriptionPageController> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text("성분 설명"),
+      ),
       body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+        child: SafeArea(
+          child: Container(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
 
-              Stack(
-                children: [
+                Container(
+                  padding: EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
 
-                  //Image.asset(WINE_IMAGE_PATH),
-                  SizedBox(
-                    height: 120,
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        Image.asset(
-                            WINE_IMAGE_PATH,
-                          fit: BoxFit.fitWidth,
-                        ),
-                        ClipRRect( // Clip it cleanly.
-                          child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
-                            child: Container(
-                              margin: EdgeInsets.only(top:24),
-                              alignment: Alignment.center,
-                              child: Text(
-                                  "성분 설명",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold
-                                ),
-                              ),
+                      Row(
+                        children: [
+
+                          Container(
+                            width: 4,
+                            height: 24,
+                            color: Colors.orange,
+                          ),
+
+                          SizedBox(width: 16),
+
+                          Text(
+                            controller.ingredientItem.title ?? "",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w900,
+                                color: Colors.black.withOpacity(0.8),
+                                fontSize: 30
                             ),
                           ),
+
+                        ],
+                      ),
+
+                      SizedBox(height:16),
+
+                      Text(
+                        controller.ingredientItem.subtitle ?? "",
+                        style: TextStyle(
+                          color: Colors.black54,
+                            fontSize: 20
                         ),
-                      ],
-                    ),
+                      ),
+
+                      // SizedBox(height:12),
+                      //
+                      // Row(
+                      //   children: [
+                      //
+                      //     TagButton("태그 1"),
+                      //     TagButton("태그 2")
+                      //
+                      //   ],
+                      // ),
+                      // SizedBox(height:12),
+                      //
+                      // Divider(),
+                      //
+                      SizedBox(height:16),
+
+                      Text(
+                        controller.ingredientItem.description ?? "",
+                        style: TextStyle(
+                          color: Colors.black54,
+                        ),
+                      ),
+
+
+                    ],
                   ),
-
-                  SafeArea(
-                    child: Container(
-                      margin: EdgeInsets.only(left:12),
-                      child: IconButton(onPressed: (){
-                        Get.back();
-                      }, icon: Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.white,
-                      )),
-                    ),
-                  )
-
-                ],
-              ),
-
-              Container(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-
-                    Text(
-                      controller.titleString.value,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black.withOpacity(0.8),
-                          fontSize: 24
-                      ),
-                    ),
-
-                    SizedBox(height:8),
-
-                    Text(
-                      controller.subTitleString.value,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-
-                    SizedBox(height:12),
-
-                    Row(
-                      children: [
-
-                        TagButton("태그 1"),
-                        TagButton("태그 2")
-
-                      ],
-                    ),
-
-                    SizedBox(height:12),
-
-                    Text(
-                      controller.descriptionString.value ,
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-
-                    Divider(),
-
-                  ],
-                ),
-              )
+                )
 
 
-            ],
+
+
+              ],
+            ),
           ),
         ),
       ),

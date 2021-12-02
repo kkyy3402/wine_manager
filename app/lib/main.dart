@@ -18,7 +18,7 @@ class FlutterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: AppRoutes.HOME,
+      initialRoute: AppRoutes.LOGIN,
       transitionDuration: Get.defaultTransitionDuration,
       defaultTransition: Transition.fade,
       debugShowCheckedModeBanner: false,

@@ -8,6 +8,7 @@ import 'package:wine_manager/common/widget/SubTitleText.dart';
 import 'package:wine_manager/common/widget/TitleText.dart';
 import 'package:wine_manager/core/route/app_pages.dart';
 import 'package:wine_manager/feature/home/controller/home_controller.dart';
+import 'package:wine_manager/feature/home/model/description_item_model.dart';
 
 class FirstPage extends GetView<HomeController> {
 
@@ -82,17 +83,22 @@ class FirstPage extends GetView<HomeController> {
 
             Expanded(
               child: ListView.builder(
-                itemCount: 10,
+                itemCount: controller.ingredientItemsDescItems.length,
                 itemBuilder: (BuildContext context, int index) {
+
+                  IngredientDescriptionItemModel ingredientItem = controller.ingredientItemsDescItems[index];
+
                   return GestureDetector(
                     onTap: (){
-                      Get.toNamed(AppRoutes.INGREDIENT_DESCRIPTION_PAGE);
+                      Get.toNamed(AppRoutes.INGREDIENT_DESCRIPTION_PAGE, arguments: {
+                        "ingredientItem" : ingredientItem
+                      });
                     },
                     child: StatusListCell(
-                        "dioxide aa",
+                        ingredientItem.title,
                         // color: Colors.blueAccent,
                         color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
-                        subTitleStr: "이러이러한 성분입니다. ...를 하는데 도움을 줍니다",
+                        subTitleStr: ingredientItem.description,
                         volumeStr:"18mg"
                     ),
                   );

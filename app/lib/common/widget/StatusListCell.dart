@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 class StatusListCell extends StatelessWidget {
 
   StatusListCell(this.titleStr,{this.color, this.subTitleStr, this.volumeStr});
-  final String titleStr;
+  final String? titleStr;
   final String? subTitleStr;
   final String? volumeStr;
   Color? color;
@@ -43,7 +43,7 @@ class StatusListCell extends StatelessWidget {
                   children: [
 
                     Text(
-                      this.titleStr,
+                      this.titleStr ?? "",
                       style: TextStyle(
                           fontSize: 24,
                           color: Colors.black54,
@@ -71,6 +71,8 @@ class StatusListCell extends StatelessWidget {
                       fontSize: 16,
                       color: Colors.grey,
                   ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
                 )
 
               ],
