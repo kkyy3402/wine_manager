@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wine_manager/feature/home/model/description_item_model.dart';
+import 'package:wine_manager/feature/home/model/sensor_data_model.dart';
 import 'package:wine_manager/feature/home/view/first_page.dart';
 import 'package:wine_manager/feature/home/view/second_page.dart';
+import 'package:http/http.dart' as http;
 import 'package:wine_manager/feature/home/view/third_page.dart';
 
 class HomeController extends GetxController {
@@ -14,6 +18,8 @@ class HomeController extends GetxController {
   final ValueNotifier<int> pageNotifier = new ValueNotifier<int>(0);
 
   List<StatelessWidget> pages = [FirstPage(), SecondPage()];
+
+  final wineModel = WineDataModel().obs;
 
   List<IngredientDescriptionItemModel> ingredientItemsDescItems = [
     IngredientDescriptionItemModel(
@@ -87,11 +93,20 @@ class HomeController extends GetxController {
 
     print(ingredientItemsDescItems[0].title);
 
+    requestData();
+
   }
 
   @override
   void onClose() {
     super.onClose();
+  }
+
+  void requestData() async {
+    final response = await http.get(Uri.parse("http://146.56.160.73:32000/api/v1?userId=1234"));
+    WineDataModel data = WineDataModel.fromJson(json.decode(response.body));
+    print("data.responseCode : ${data.responseCode}");
+    wineModel.value = data;
   }
 
 }
