@@ -102,7 +102,7 @@ class FirstPage extends GetView<HomeController> {
                         // color: Colors.blueAccent,
                         color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
                         subTitleStr: ingredientItem.description,
-                        volumeStr: "${controller.wineModel.value.data.}"
+                        volumeStr: "1"
                     ),
                   );
                 },

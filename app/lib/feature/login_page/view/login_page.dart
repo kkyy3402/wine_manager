@@ -87,7 +87,7 @@ class LoginPage extends GetView<LoginController> {
 
                   ),
                   child: MaterialButton(
-                    onPressed: () => Get.toNamed(AppRoutes.HOME),
+                    onPressed: () => Get.toNamed(AppRoutes.WINE_SELECT_PAGE),
                     color: Colors.blue,
                     child: Text(
                       '로그인',

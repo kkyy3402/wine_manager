@@ -29,6 +29,7 @@ dependencies:
   http: ^0.13.3
   avatar_glow: ^2.0.2
   page_view_indicators: ^2.0.0
+  syncfusion_flutter_charts:
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -5,6 +5,8 @@ import 'package:wine_manager/feature/home/binding.dart';
 import 'package:wine_manager/feature/home/view/home_page.dart';
 import 'package:wine_manager/feature/login_page/binding.dart';
 import 'package:wine_manager/feature/login_page/view/login_page.dart';
+import 'package:wine_manager/feature/wine_type_select_page/binding.dart';
+import 'package:wine_manager/feature/wine_type_select_page/view/wine_type_select_page.dart';
 part 'app_routes.dart';
 
 class AppPages {
@@ -24,6 +26,12 @@ class AppPages {
         name: AppRoutes.LOGIN,
         page: () => LoginPage(),
         binding: LoginBinding(),
+        transition: Transition.cupertino
+    ),
+    GetPage(
+        name: AppRoutes.WINE_SELECT_PAGE,
+        page: () => WineTypeSelectPage(),
+        binding: WineSelectPageBinding(),
         transition: Transition.cupertino
     ),
   ];
