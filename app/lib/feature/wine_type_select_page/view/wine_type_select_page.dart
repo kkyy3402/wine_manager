@@ -51,16 +51,17 @@ class WineTypeSelectPage extends GetView<WineTypeSelectPageController> {
 
                 renderEnabledList(),
 
-                renderDisabledLists(),
-                renderDisabledLists(),
-                renderDisabledLists(),
-                renderDisabledLists(),
-                renderDisabledLists(),
-                renderDisabledLists(),
-                renderDisabledLists(),
-                renderDisabledLists(),
-                renderDisabledLists(),
-                renderDisabledLists(),
+                renderDisabledLists("막걸리"),
+                renderDisabledLists("음료 타입1"),
+                renderDisabledLists("음료 타입2"),
+                renderDisabledLists("음료 타입3"),
+                renderDisabledLists("음료 타입4"),
+                renderDisabledLists("음료 타입5"),
+                renderDisabledLists("음료 타입6"),
+                renderDisabledLists("음료 타입7"),
+                renderDisabledLists("음료 타입8"),
+                renderDisabledLists("음료 타입9"),
+
 
               ],
             ),
@@ -79,13 +80,13 @@ class WineTypeSelectPage extends GetView<WineTypeSelectPageController> {
     );
   }
 
-  Widget renderDisabledLists(){
+  Widget renderDisabledLists(String? titleStr){
     return GestureDetector(
       onTap: (){
         Get.snackbar("알림", "현재 실행 불가능합니다.",duration: Duration(milliseconds: 700));
       },
         child: WineTypeSelectListItemWidget(
-          "저장소명",
+          titleStr ?? "",
           "저장소명 설명입니다.",
           iconBackgroundColor: Colors.grey.shade300,
         )

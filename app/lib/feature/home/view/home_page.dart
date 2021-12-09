@@ -8,6 +8,7 @@ import 'package:wine_manager/feature/home/controller/home_controller.dart';
 import 'package:wine_manager/feature/home/view/first_page.dart';
 import 'package:wine_manager/feature/home/view/second_page.dart';
 import 'package:wine_manager/feature/home/view/third_page.dart';
+import 'package:wine_manager/feature/storage_register_page/storage_register_page.dart';
 
 class HomePage extends GetView<HomeController> {
 
@@ -20,7 +21,6 @@ class HomePage extends GetView<HomeController> {
             PageView(
               controller: controller.pageController,
               onPageChanged: (page){
-                controller.currentPage?.value = page + 1;
                 controller.pageNotifier.value = page;
               },
               children: controller.pages,
@@ -35,8 +35,20 @@ class HomePage extends GetView<HomeController> {
                     child: Container(
                       alignment: Alignment.topRight,
                       margin: EdgeInsets.only(right: 16),
-                      child: Column(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
+
+                          IconButton(
+                              onPressed: (){
+                                Get.to(StorageRegisterPage());
+                              },
+                              icon: Icon(
+                                Icons.add,
+                                color: Colors.black54,
+                              )
+                          ),
+
                           IconButton(
                               onPressed: (){
                                 Get.back();
@@ -45,7 +57,9 @@ class HomePage extends GetView<HomeController> {
                                 Icons.logout,
                                 color: Colors.black54,
                               )
-                          )
+                          ),
+
+
                         ],
                       ),
                     ),

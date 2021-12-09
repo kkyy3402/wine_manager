@@ -54,7 +54,7 @@ class StatusListCell extends StatelessWidget {
                     Text(
                       this.volumeStr ?? "",
                       style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 14,
                           color: Colors.blueAccent,
                           fontWeight: FontWeight.bold
                       ),

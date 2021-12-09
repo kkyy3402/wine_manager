@@ -13,6 +13,8 @@ import 'package:wine_manager/feature/home/model/sensor_data_model.dart';
 
 class FirstPage extends GetView<HomeController> {
 
+  // HomeController c = Get.put(HomeController());
+  //
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -60,7 +62,7 @@ class FirstPage extends GetView<HomeController> {
 
                     TitleText("창고 1"),
                     SizedBox(height: 8),
-                    SubTitleText("복분자 저장소")
+                    SubTitleText("와인 저장소")
 
                   ],
                 )
@@ -83,13 +85,15 @@ class FirstPage extends GetView<HomeController> {
             SizedBox(height: 24),
 
             Expanded(
-              child: ListView.builder(
+              child:                   ListView.builder(
                 itemCount: controller.ingredientItemsDescItems.length,
                 itemBuilder: (BuildContext context, int index) {
 
                   IngredientDescriptionItemModel ingredientItem = controller.ingredientItemsDescItems[index];
-                  double? dSensorData = controller.wineModel.value.data?.storageData?[0].sensorData?[index];
-                  //WineDataModel data = controller.wineModel.value;
+                  // double? dSensorData = controller.wineModel.value.data?.storageData?[0].sensorData?[index];
+                  // WineDataModel data = controller.wineModel.value;
+
+                  String? sensorValue = controller.wineModel.value.data?.storageData?[0].sensorData?[index].toStringAsFixed(1);
 
                   return GestureDetector(
                     onTap: (){
@@ -102,11 +106,11 @@ class FirstPage extends GetView<HomeController> {
                         // color: Colors.blueAccent,
                         color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
                         subTitleStr: ingredientItem.description,
-                        volumeStr: "1"
+                        volumeStr: "$sensorValue mg/L"
                     ),
                   );
                 },
-              ),
+              )
             ),
 
             SizedBox(height: 16),

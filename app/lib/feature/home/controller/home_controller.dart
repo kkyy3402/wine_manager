@@ -17,7 +17,7 @@ class HomeController extends GetxController {
   RxInt? currentPage = 1.obs;
   final ValueNotifier<int> pageNotifier = new ValueNotifier<int>(0);
 
-  List<StatelessWidget> pages = [FirstPage(), SecondPage()];
+  List<GetView<HomeController>> pages = [FirstPage(), SecondPage()];
 
   final wineModel = WineDataModel().obs;
 
@@ -58,6 +58,20 @@ class HomeController extends GetxController {
     ),
 
     IngredientDescriptionItemModel(
+        "free sulfur dioxide",
+        "밀도",
+        "바디의 높고 낮음을 표현하는 와인의 무게감을 의미한다. 산성도(pH) : 와인의 신맛의 정도를 나타낸다.",
+        1.0
+    ),
+
+    IngredientDescriptionItemModel(
+        "total sulfur dioxide",
+        "밀도",
+        "바디의 높고 낮음을 표현하는 와인의 무게감을 의미한다. 산성도(pH) : 와인의 신맛의 정도를 나타낸다.",
+        1.0
+    ),
+
+    IngredientDescriptionItemModel(
         "density",
         "밀도",
         "바디의 높고 낮음을 표현하는 와인의 무게감을 의미한다. 산성도(pH) : 와인의 신맛의 정도를 나타낸다.",
@@ -92,7 +106,6 @@ class HomeController extends GetxController {
     super.onInit();
 
     print(ingredientItemsDescItems[0].title);
-
     requestData();
 
   }
@@ -107,6 +120,9 @@ class HomeController extends GetxController {
     WineDataModel data = WineDataModel.fromJson(json.decode(response.body));
     print("data.responseCode : ${data.responseCode}");
     wineModel.value = data;
+    //wineModel.refresh();
+
+    update();
   }
 
 }

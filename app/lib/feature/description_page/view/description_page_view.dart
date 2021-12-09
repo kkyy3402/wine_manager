@@ -87,7 +87,11 @@ class DescriptionPage extends GetView<DescriptionPageController> {
 
               Expanded(child: Container(),),
 
-              ExampleChart()
+              Container(
+                margin: EdgeInsets.only(left: 36),
+                child: ExampleChart(),
+              )
+
 
 
 

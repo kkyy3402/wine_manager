@@ -9,6 +9,7 @@ import 'package:wine_manager/common/widget/TitleText.dart';
 import 'package:wine_manager/core/route/app_pages.dart';
 import 'package:wine_manager/feature/home/controller/home_controller.dart';
 import 'package:wine_manager/feature/home/model/description_item_model.dart';
+import 'package:wine_manager/feature/home/model/sensor_data_model.dart';
 
 class SecondPage extends GetView<HomeController> {
 
@@ -89,6 +90,8 @@ class SecondPage extends GetView<HomeController> {
 
                   IngredientDescriptionItemModel ingredientItem = controller.ingredientItemsDescItems[index];
 
+                  String? sensorValue = controller.wineModel.value.data?.storageData?[1].sensorData?[index].toStringAsFixed(1);
+
                   return GestureDetector(
                     onTap: (){
                       Get.toNamed(AppRoutes.INGREDIENT_DESCRIPTION_PAGE, arguments: {
@@ -100,7 +103,7 @@ class SecondPage extends GetView<HomeController> {
                         // color: Colors.blueAccent,
                         color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
                         subTitleStr: ingredientItem.description,
-                        volumeStr:"18mg"
+                        volumeStr: "$sensorValue mg/L"
                     ),
                   );
                 },
