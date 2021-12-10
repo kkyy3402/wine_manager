@@ -20,19 +20,16 @@ class AppPages {
       name: AppRoutes.INGREDIENT_DESCRIPTION_PAGE,
       page: () => DescriptionPage(),
       binding: DescriptionPageBinding(),
-      transition: Transition.cupertino
     ),
     GetPage(
         name: AppRoutes.LOGIN,
         page: () => LoginPage(),
         binding: LoginBinding(),
-        transition: Transition.cupertino
     ),
     GetPage(
         name: AppRoutes.WINE_SELECT_PAGE,
         page: () => WineTypeSelectPage(),
         binding: WineSelectPageBinding(),
-        transition: Transition.cupertino
     ),
   ];
 }
