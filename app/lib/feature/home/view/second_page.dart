@@ -101,7 +101,7 @@ class SecondPage extends GetView<HomeController> {
                     child: StatusListCell(
                         ingredientItem.title,
                         // color: Colors.blueAccent,
-                        color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+                        color: index == 1 || index == 5 ? Colors.red : Colors.lightBlueAccent,
                         subTitleStr: ingredientItem.description,
                         volumeStr: "$sensorValue mg/L"
                     ),
